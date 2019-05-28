@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title >
+           <!--
+          <ion-text color="light">
+          <ion-text color="light" class="fw700">  </ion-text>
+          </ion-text>-->
+
+           <!-- Logo -->
+           <img src="assets/img/logoBJ.png" width="200px" height= "40px" style="display: -webkit-flex; margin-left: 25px;"/>
+    </ion-title>
+    
+    <!--
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge color="dark" slot="end">0</ion-badge>
+      </ion-button>
+    </ion-buttons>
+      -->
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card no-margin class="no-radius">
+    <ion-item lines="none" color="medium">
+      <ion-label>
+        <h1 no-margin class="fw500 no-margin" style="text-align: center">
+          <ion-text color="dark"> Início </ion-text>
+        </h1>
+        <!--
+        <p class="text-11x no-margin">
+          <ion-text  color="primary">{{yourLocation}}</ion-text>
+        </p>
+         -->
+      </ion-label>
+         
+      <!--
+      <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
+        Localização
+        <ion-icon name="locate"></ion-icon>
+      </ion-button>
+      -->
+    </ion-item>
+  </ion-card>
+
+  <!--
+  <ion-card class="bg-white">
+    <img src="assets/img/indice.png" width="300" height="300"/>
+    
+    <ion-button expand="full" color="dark" (click)="presentImage(Theme-cover)" no-margin>
+      Modelo
+    </ion-button>
+     
+  </ion-card>
+    -->
+
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+        Registro Diário
+  </ion-button>
+
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+        Registro Futuro
+  </ion-button>
+
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+        Registro Mensal
+  </ion-button>
+
+  <popmenu></popmenu>
+
+</ion-content>
+  
