@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController, MenuController, LoadingController } from '@ionic/angular';
+import { NavController, MenuController, LoadingController, ToastController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,9 @@ export class RegisterPage implements OnInit {
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder
+    public toastController: ToastController,
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient
   ) { }
 
   ionViewWillEnter() {
@@ -23,31 +27,60 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.onRegisterForm = this.formBuilder.group({
-      'fullName': [null, Validators.compose([
+      'nome': [null, Validators.compose([
+        Validators.required
+      ])],
+      'sobrenome': [null, Validators.compose([
         Validators.required
       ])],
       'email': [null, Validators.compose([
         Validators.required
       ])],
-      'password': [null, Validators.compose([
+      'senha': [null, Validators.compose([
+        Validators.required
+      ])],
+      'perguntaSeguranca': [null, Validators.compose([
+        Validators.required
+      ])],
+      'respostaSeguranca': [null, Validators.compose([
         Validators.required
       ])]
     });
   }
 
   async signUp() {
-    const loader = await this.loadingCtrl.create({
-      duration: 2000
-    });
+    const loader = await this.loadingCtrl.create();
 
     loader.present();
-    loader.onWillDismiss().then(() => {
-      this.navCtrl.navigateRoot('/home-results');
+
+    if (this.onRegisterForm.dirty && this.onRegisterForm.valid) {
+
+      this.httpClient.post(environment.api + '/api/bulletjournal', this.onRegisterForm.value)
+        .subscribe((res) => {
+          loader.dismiss();
+          console.log(res);
+          this.navCtrl.navigateRoot('/');
+          this.presentToast('Conta criada com sucesso');
+        }, (err) => {
+          loader.dismiss();
+          console.error(err);
+        });
+
+    }
+
+  }
+
+  async presentToast(text: string) {
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 2000
     });
+    toast.present();
   }
 
   // // //
-  goToLogin() {
+  async goToLogin() {
     this.navCtrl.navigateRoot('/');
   }
+
 }

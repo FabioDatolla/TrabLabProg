@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div padding-horizontal text-center>
       <div class="logo"></div>
-      <h3 no-margin>
+      <h3 margin-top>
         <ion-text color="light" class="fw700">
           <ion-text color="secondary">Cadastro</ion-text>
         </ion-text>
@@ -15,12 +15,25 @@
     <form [formGroup]="onRegisterForm" class="list-form">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
-          <ion-icon name="mail" item-start></ion-icon>
-          Nome Completo
+          <ion-icon name="person" item-start></ion-icon>
+          Nome
         </ion-label>
-        <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+        <ion-input color="secondary" type="text" formControlName="nome"></ion-input>
       </ion-item>
-      <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('nome').touched && onRegisterForm.get('nome').hasError('required')">
+        <ion-text color="warning">
+          Este campo é obrigatório
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="person" item-start></ion-icon>
+          Sobrenome
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="sobrenome"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('sobrenome').touched && onRegisterForm.get('sobrenome').hasError('required')">
         <ion-text color="warning">
           Este campo é obrigatório
         </ion-text>
@@ -44,9 +57,35 @@
           <ion-icon name="lock" item-start></ion-icon>
           Senha
         </ion-label>
-        <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+        <ion-input color="secondary" type="password" formControlName="senha"></ion-input>
       </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('senha').touched && onRegisterForm.get('senha').hasError('required')">
+        <ion-text color="warning">
+          Este campo é obrigatório
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="key" item-start></ion-icon>
+          Pergunta de Segurança
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="perguntaSeguranca"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('perguntaSeguranca').touched && onRegisterForm.get('perguntaSeguranca').hasError('required')">
+        <ion-text color="warning">
+          Este campo é obrigatório
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="key" item-start></ion-icon>
+          Resposta de Segurança
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="respostaSeguranca"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('respostaSeguranca').touched && onRegisterForm.get('respostaSeguranca').hasError('required')">
         <ion-text color="warning">
           Este campo é obrigatório
         </ion-text>
@@ -57,10 +96,10 @@
       <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="signUp()" [disabled]="!onRegisterForm.valid"
         tappable>
         <ion-icon name="log-in"></ion-icon>
-        Entrar
+        &nbsp;Criar Usuário
       </ion-button>
 
-      <p text-center>
+      <!-- <p text-center>
         <ion-text color="light">
           Entrar com:
         </ion-text>
@@ -84,7 +123,7 @@
             </ion-button>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
 
     </div>
 

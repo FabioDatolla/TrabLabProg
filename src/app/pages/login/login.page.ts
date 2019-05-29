@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
       'email': [null, Validators.compose([
         Validators.required
       ])],
-      'password': [null, Validators.compose([
+      'senha': [null, Validators.compose([
         Validators.required
       ])]
     });
