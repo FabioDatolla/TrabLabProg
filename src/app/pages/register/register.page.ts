@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class RegisterPage implements OnInit {
   public onRegisterForm: FormGroup;
+  public questions: Object;
 
   constructor(
     public navCtrl: NavController,
@@ -46,26 +47,33 @@ export class RegisterPage implements OnInit {
         Validators.required
       ])]
     });
+
+    this.questions = [
+      {id: 1, question: 'Qual era o nome do seu primeiro animal de estimação?'},
+      {id: 2, question: 'Qual é o nome do meio do seu pai?'},
+      {id: 3, question: 'Em qual cidade você nasceu?'},
+      {id: 4, question: 'Qual é o nome do seu melhor amigo de infância?'},
+      {id: 5, question: 'Qual é o nome de solteira da sua mãe?'}
+    ];
   }
 
   async signUp() {
-    const loader = await this.loadingCtrl.create();
-
-    loader.present();
-
+    
     if (this.onRegisterForm.dirty && this.onRegisterForm.valid) {
+      const loader = await this.loadingCtrl.create();
+      loader.present();
 
       this.httpClient.post(environment.api + '/api/bulletjournal', this.onRegisterForm.value)
         .subscribe((res) => {
           loader.dismiss();
           console.log(res);
           this.navCtrl.navigateRoot('/');
-          this.presentToast('Conta criada com sucesso');
+          this.presentToast('Usuário criado com sucesso.');
         }, (err) => {
           loader.dismiss();
           console.error(err);
+          this.presentToast('Não foi possível criar o usuário.');
         });
-
     }
 
   }

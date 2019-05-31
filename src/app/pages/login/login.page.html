@@ -1,7 +1,8 @@
 <ion-content padding class="animated fadeIn login auth-page">
   <div class="theme-bg"></div>
   <div class="auth-content">
-
+    <br>
+    <br>
     <!-- Logo -->
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
@@ -22,7 +23,7 @@
         <ion-input color="secondary" type="email" formControlName="email"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
-        <ion-text color="warning">
+        <ion-text color="danger">
           Campo Obrigatório
         </ion-text>
       </p>
@@ -34,8 +35,8 @@
         </ion-label>
         <ion-input color="secondary" type="password" formControlName="senha"></ion-input>
       </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('senha').touched && onLoginForm.get('senha').hasError('required')">
-        <ion-text color="warning">
+      <p ion-text class="text08" *ngIf="onLoginForm.get('senha').touched && onLoginForm.get('senha').hasError('required')">
+        <ion-text color="danger">
           Campo Obrigatório
         </ion-text>
         </p>
@@ -50,7 +51,7 @@
     <div>
       <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>
-        Entrar
+        &nbsp;Entrar
       </ion-button>
 
       <!-- <p text-center>
@@ -81,6 +82,7 @@
 
     </div>
 
+    <br>
     <!-- Other links -->
     <div text-center margin-top>
       <span (click)="goToRegister()" class="paz" tappable>

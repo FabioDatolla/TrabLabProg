@@ -70,7 +70,12 @@
           <ion-icon name="key" item-start></ion-icon>
           Pergunta de Segurança
         </ion-label>
-        <ion-input color="secondary" type="text" formControlName="perguntaSeguranca"></ion-input>
+        <ion-select color="secondary" formControlName="perguntaSeguranca" okText="Selecionar" cancelText="Cancelar" value="">
+          <ion-select-option></ion-select-option>
+          <ion-select-option *ngFor="let question of questions" value="{{question.id}}">
+            {{question.question}}
+          </ion-select-option>          
+        </ion-select>
       </ion-item>
       <p ion-text class="text08" *ngIf="onRegisterForm.get('perguntaSeguranca').touched && onRegisterForm.get('perguntaSeguranca').hasError('required')">
         <ion-text color="warning">
