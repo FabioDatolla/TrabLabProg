@@ -5,13 +5,24 @@ import {
   MenuController,
   ToastController,
   PopoverController,
-  ModalController } from '@ionic/angular';
+  ModalController
+} from '@ionic/angular';
 
 // Modals
-import { SearchFilterPage } from '../modal/search-filter/search-filter.page';
-import { ImagePage } from '../modal/image/image.page';
+import { Reg_Diario_Page } from '../../pages/modal/Reg_Diario/Reg_Diario.page';
+import { Reg_Futuro_Page } from '../../pages/modal/Reg_Futuro/Reg_Futuro.page';
+import { Reg_Mensal_Page } from '../../pages/modal/Reg_Mensal/Reg_Mensal.page';
+
+
+
+import { ImagePage } from './../modal/image/image.page';
 // Call notifications test by Popover and Custom Component.
 import { NotificationsComponent } from '../../components/notifications/notifications.component';
+
+
+//import { Reg_Diario_Page } from '../modal/Reg_Futuro/Reg_Futuro.page';
+//import { Reg_Futuro_Page } from '../modal/Reg_Futuro/Reg_Futuro.page';
+//import { Reg_Mensal_Page } from '../modal/Reg_Futuro/Reg_Futuro.page';
 
 @Component({
   selector: 'app-home-results',
@@ -81,9 +92,23 @@ export class HomeResultsPage {
     changeLocation.present();
   }
 
-  async searchFilter () {
+  async Reg_Diario() {
     const modal = await this.modalCtrl.create({
-      component: SearchFilterPage
+      component: Reg_Diario_Page
+    });
+    return await modal.present();
+  }
+
+  async Reg_Futuro() {
+    const modal = await this.modalCtrl.create({
+      component: Reg_Futuro_Page
+    });
+    return await modal.present();
+  }
+
+  async Reg_Mensal() {
+    const modal = await this.modalCtrl.create({
+      component: Reg_Mensal_Page
     });
     return await modal.present();
   }

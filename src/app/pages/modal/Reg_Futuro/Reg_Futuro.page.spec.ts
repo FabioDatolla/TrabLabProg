@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchFilterPage } from './search-filter.page';
+import { Reg_Futuro_Page } from './Reg_Futuro.page';
 
-describe('SearchFilterPage', () => {
-  let component: SearchFilterPage;
-  let fixture: ComponentFixture<SearchFilterPage>;
+describe('Reg_Futuro_Page', () => {
+  let component: Reg_Futuro_Page;
+  let fixture: ComponentFixture<Reg_Futuro_Page>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchFilterPage ],
+      declarations: [ Reg_Futuro_Page ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchFilterPage);
+    fixture = TestBed.createComponent(Reg_Futuro_Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -13,7 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Modal Pages
 import { ImagePageModule } from './pages/modal/image/image.module';
-import { SearchFilterPageModule } from './pages/modal/search-filter/search-filter.module';
+import { Reg_Diario_PageModule } from './pages/modal/Reg_Diario/Reg_Diario.module';
+import { Reg_Futuro_PageModule } from './pages/modal/Reg_Futuro/Reg_Futuro.module';
+import { Reg_Mensal_PageModule } from './pages/modal/Reg_Mensal/Reg_Mensal.module';
 
 // Components
 import { NotificationsComponent } from './components/notifications/notifications.component';
@@ -28,7 +30,9 @@ import { NotificationsComponent } from './components/notifications/notifications
     AppRoutingModule,
     HttpClientModule,
     ImagePageModule,
-    SearchFilterPageModule
+    Reg_Diario_PageModule,
+    Reg_Futuro_PageModule,
+    Reg_Mensal_PageModule,
   ],
   entryComponents: [NotificationsComponent],
   providers: [

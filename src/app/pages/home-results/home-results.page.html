@@ -21,11 +21,13 @@
       </ion-button>
     </ion-buttons>
       -->
+
+  
   </ion-toolbar>
   <ion-toolbar color="dark">
     <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
     <ion-buttons slot="end">
-      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+      <ion-button size="small" shape="round" color="medium">
         <ion-icon name="options"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -67,15 +69,15 @@
   </ion-card>
     -->
 
-  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="Reg_Diario()">
         Registro Diário
   </ion-button>
 
-  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="Reg_Futuro()">
         Registro Futuro
   </ion-button>
 
-  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="Reg_Mensal()">
         Registro Mensal
   </ion-button>
 
