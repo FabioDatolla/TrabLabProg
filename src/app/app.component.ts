@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from './services/auth.service';
 
 import { Pages } from './interfaces/pages';
 
@@ -12,14 +13,16 @@ import { Pages } from './interfaces/pages';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  public user: any;
   public appPages: Array<Pages>;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private authService: AuthService
+
   ) {
     this.appPages = [
       {
@@ -58,6 +61,6 @@ export class AppComponent {
   }
 
   logout() {
-    this.navCtrl.navigateRoot('/');
+    this.authService.logout();
   }
 }

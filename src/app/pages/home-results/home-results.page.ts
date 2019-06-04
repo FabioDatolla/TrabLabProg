@@ -8,10 +8,10 @@ import {
   ModalController } from '@ionic/angular';
 
 // Modals
-import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
-import { ImagePage } from './../modal/image/image.page';
+import { SearchFilterPage } from '../modal/search-filter/search-filter.page';
+import { ImagePage } from '../modal/image/image.page';
 // Call notifications test by Popover and Custom Component.
-import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import { NotificationsComponent } from '../../components/notifications/notifications.component';
 
 @Component({
   selector: 'app-home-results',
@@ -29,7 +29,7 @@ export class HomeResultsPage {
     public popoverCtrl: PopoverController,
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
   ) {
 
   }

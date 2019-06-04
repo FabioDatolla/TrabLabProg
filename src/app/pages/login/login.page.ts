@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginPage implements OnInit {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private authService: AuthService
   ) { }
 
   ionViewWillEnter() {
@@ -45,6 +47,27 @@ export class LoginPage implements OnInit {
       4: 'Qual é o nome do seu melhor amigo de infância?',
       5: 'Qual é o nome de solteira da sua mãe?'
     };
+
+  }
+
+  async doLogin() {
+    if (this.onLoginForm.dirty && this.onLoginForm.valid) {
+      const loader = await this.loadingCtrl.create();
+      loader.present();
+      console.log(this.onLoginForm);
+
+      this.httpClient.post(environment.api + '/api/bulletjournal/cadastro', this.onLoginForm.value)
+        .subscribe((res) => {
+          loader.dismiss();
+          this.goToHome();
+          this.presentToast('Login realizado com sucesso.');
+          this.authService.saveCredentials(res)
+        }, (err) => {
+          loader.dismiss();
+          console.error(err);
+          this.presentToast('Não foi possível logar.');
+        });
+    }
   }
 
   async forgotPass() {
