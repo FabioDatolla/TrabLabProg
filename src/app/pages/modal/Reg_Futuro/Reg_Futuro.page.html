@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button color="primary" (click)="closeModal()">
+            <ion-icon name="close" color="light"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>
+    	Registro Futuro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+		<ion-item>
+				<ion-label class="fw500" color="dark">Tópico</ion-label>
+				<ion-select [(ngModel)]="topico">
+					<ion-select-option>Tarefa</ion-select-option>
+					<ion-select-option>Evento</ion-select-option>
+					<ion-select-option>Nota</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+
+
+  <ion-item>
+	  <ion-label class="fw500" color="dark">Classificação</ion-label>
+	  <ion-select [(ngModel)]="classificacao">
+	    <ion-select-option>Incompleta</ion-select-option>
+	    <ion-select-option>Completa</ion-select-option>
+	    <ion-select-option> <ion-icon name="arrow-forward"></ion-icon> Demorada</ion-select-option>
+	    <ion-select-option>Mover p/ Reg Futuro</ion-select-option>
+	  </ion-select>
+	</ion-item>
+
+	<ion-item>
+	  <ion-label class="fw500" color="dark">Relevância</ion-label>
+	  <ion-select [(ngModel)]="dishtype" multiple="true">
+	    <ion-select-option>Prioridade</ion-select-option>
+	    <ion-select-option>Inspiração</ion-select-option>
+	    	   
+	  </ion-select>
+	</ion-item>
+
+	<form>
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+				<ion-icon name="list"></ion-icon>
+          Tópico
+        </ion-label>
+        <ion-input color="secondary" type="email" ></ion-input>
+      </ion-item>
+	</form>
+
+
+	<ion-button expand="full" color="primary" (click)="closeModal()">Adicionar</ion-button>
+</ion-content>
