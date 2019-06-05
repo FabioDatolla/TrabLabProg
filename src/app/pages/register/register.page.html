@@ -70,7 +70,7 @@
           <ion-icon name="key" item-start></ion-icon>
           Pergunta de Segurança
         </ion-label>
-        <ion-select color="secondary" formControlName="perguntaSeguranca" okText="Selecionar" cancelText="Cancelar" value="" style="font-color: white;">
+        <ion-select color="secondary" formControlName="perguntaSeguranca" okText="Selecionar" cancelText="Cancelar" value="" style="color: white;">
           <ion-select-option></ion-select-option>
           <ion-select-option *ngFor="let question of questions" value="{{question.id}}">
             {{question.question}}

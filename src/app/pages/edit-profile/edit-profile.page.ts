@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class EditProfilePage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private authService: AuthService
     ) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class EditProfilePage implements OnInit {
       const toast = await this.toastCtrl.create({
         showCloseButton: true,
         cssClass: 'bg-profile',
-        message: 'Your Data was Edited!',
+        message: 'Dados alterados com sucesso!',
         duration: 3000,
         position: 'bottom'
       });
